@@ -3,7 +3,7 @@ use std::path::PathBuf;
 
 #[derive(Parser)]
 #[command(name = "filesentinel")]
-#[command(version = "0.2.0")]
+#[command(version = "0.1.0-alpha")]
 #[command(about = "Outil de surveillance et synchronisation de fichiers", long_about = None)]
 pub struct Cli {
     #[command(subcommand)]
