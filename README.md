@@ -66,54 +66,23 @@
 
 ## Installation
 
-### Option 1 — Binaire précompilé (recommandé, aucun prérequis)
+### Option 1 — Exécutable (recommandé, aucun prérequis)
 
-Téléchargez la dernière version depuis la [page Releases](https://github.com/Annouuuuuuu/SN-Rust-G8/releases), extrayez l'archive et lancez le script d'installation correspondant à votre système.
+Téléchargez la dernière version correspondant à votre système depuis la [page Releases](https://filesentinel-docs.vercel.app), et lancez le script d'installation.
 
-**Windows**
-
-```
-filesentinel-windows.zip
-├── filesentinel.exe
-├── install.ps1
-└── uninstall.ps1
-```
-
-Clic droit sur `install.ps1` → **Exécuter avec PowerShell** (en tant qu'administrateur).
-
-> Si Windows bloque le script, ouvrez PowerShell en administrateur et exécutez d'abord :
-> ```powershell
-> Set-ExecutionPolicy -Scope CurrentUser -ExecutionPolicy RemoteSigned
-> ```
-
-**Linux**
-
-```
-filesentinel-linux.tar.gz
-├── filesentinel
-├── install.sh
-└── uninstall.sh
-```
-
-```bash
-chmod +x install.sh
-./install.sh
-```
-
----
 
 ### Option 2 — Depuis les sources (nécessite Rust 1.70+)
 
 ```bash
 # Cloner le dépôt
-git clone https://github.com/Annouuuuuuu/filesentinel
-cd SN-Rust-G8
+git clone https://github.com/filesentinelCM/filesentinel-for-windows-fr
+cd filesentinel-for-windows-fr
 
 # Compiler et installer globalement
 cargo install --path .
 ```
 
-> **Note Linux :** avant de compiler, activez le watcher natif inotify en décommentant les fonctions Linux dans `src/config/settings.rs` et en commentant les fonctions Windows correspondantes (instructions détaillées dans le fichier).
+<!-- > **Note Linux :** avant de compiler, activez le watcher natif inotify en décommentant les fonctions Linux dans `src/config/settings.rs` et en commentant les fonctions Windows correspondantes (instructions détaillées dans le fichier). -->
 
 ---
 
@@ -126,8 +95,8 @@ cargo install --path .
 ### Vérification de l'installation
 
 ```bash
-filesentinel --version
-filesentinel --help
+filesentinel --version ou -V
+filesentinel --help ou -h
 ```
 
 ## Démarrage rapide
@@ -647,7 +616,7 @@ max_versions = 20
 
 
 
-## Roadmap
+<!-- ## Roadmap
 
 ### Version 0.3.0
 - [ ] Interface TUI avec ratatui
@@ -662,11 +631,11 @@ max_versions = 20
 ### Version 1.0.0
 - [ ] GUI avec egui/tauri
 - [ ] Tests de performance
-- [ ] Documentation complète
+- [ ] Documentation complète -->
 
-## Licence
+<!-- ## Licence
 
-MIT License - voir le fichier [LICENSE](LICENSE) pour plus de détails.
+MIT License - voir le fichier [LICENSE](LICENSE) pour plus de détails. -->
 
 ## Remerciements
 
@@ -705,4 +674,4 @@ Les contributions sont les bienvenues ! Merci de :
 
 ## Version actuelle
 
-**filesentinel. v0.0.1** - Août 2026
+**filesentinel 0.0.1-alpha** - Août 2026

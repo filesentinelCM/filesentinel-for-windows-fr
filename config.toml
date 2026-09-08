@@ -1,11 +1,6 @@
 [watch]
 directories = [
-    'C:\Users\User\Documents',
-    'C:\Users\User\Desktop',
-    'C:\Users\User\Downloads',
-    'C:\Users\User\Pictures',
-    'C:\Users\User\Music',
-    'C:\Users\User\Videos',
+    'C:\Users\User\Documents\GitHub\filesentinel\mon_projet',
 ]
 polling_interval_ms = 500
 
@@ -126,3 +121,7 @@ rsync_options = [
     "--partial",
 ]
 auto_sync_interval_minutes = 30
+
+
+[http]
+ssl-version = "tlsv1.3"

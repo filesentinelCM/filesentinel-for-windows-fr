@@ -1,6 +1,6 @@
 [package]
 name = "filesentinel"
-version = "0.1.0"
+version = "0.1.0-alpha"
 edition = "2024"
 
 [dependencies]
@@ -45,6 +45,15 @@ env_logger = "0.10"
 
 # Pour la surveillance (multi-plateforme)
 notify = { version = "6.1", default-features = false, features = ["macos_kqueue"] }
+
+# Pour l'interface graphique
+eframe = "0.29"
+egui = "0.29"
+egui_extras = "0.29"  
+
+# Pour l'icone dans la barre Système
+tray-icon = "0.15.0"
+
 
 [target.'cfg(target_os = "linux")'.dependencies]
 inotify = "0.10"
