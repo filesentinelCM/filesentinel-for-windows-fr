@@ -113,8 +113,8 @@ critical_patterns = [
 host = "mon-serveur.example.com"
 port = 22
 username = "User"
-key_path = "~/.ssh/id_rsa"
-remote_path = "/home/user/sauvegarde"
+key_path = 'C:\Users\User\.ssh\id_rsa'
+remote_path = 'C:\SAUVEGARDE\remote'
 rsync_options = [
     "-avz",
     "--progress",

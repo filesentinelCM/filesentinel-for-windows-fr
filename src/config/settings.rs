@@ -198,7 +198,7 @@ impl Default for NetworkConfig {
             host: default_host(),
             port: default_port(),
             username: default_username(),
-            key_path: Some(PathBuf::from("~/.ssh/id_rsa")),
+            key_path: Some(PathBuf::from("C:\\Users\\User\\.ssh\\id_rsa")),
             remote_path: default_remote_path(),
             rsync_options: default_rsync_options(),
             auto_sync_interval_minutes: Some(30),
@@ -360,7 +360,7 @@ fn default_username() -> String {
 }
 
 fn default_remote_path() -> PathBuf {
-    PathBuf::from("/home/user/sauvegarde")
+    PathBuf::from("C:\\SAUVEGARDE\\remote")
 }
 
 fn default_rsync_options() -> Vec<String> {
@@ -392,34 +392,6 @@ impl Config {
         Ok(())
     }
 }
-
-// ============================================
-// CONFIGURATION LINUX (remplacez les fonctions ci-dessus)
-// ============================================
-
-// fn default_directories() -> Vec<String> {
-//     let home = std::env::var("HOME").unwrap_or_else(|_| "/home/user".to_string());
-//     vec![
-//         format!("{}/Documents", home),
-//         format!("{}/Desktop", home),
-//         format!("{}/Downloads", home),
-//         format!("{}/Pictures", home),
-//         format!("{}/Music", home),
-//         format!("{}/Videos", home),
-//         format!("{}/Templates", home),
-//         format!("{}/Public", home),
-//     ]
-// }
-
-// fn default_destination() -> String {
-//     let home = std::env::var("HOME").unwrap_or_else(|_| "/home/user".to_string());
-//     format!("{}/SAUVEGARDE", home)
-// }
-
-// fn default_versions_dir() -> PathBuf {
-//     let home = std::env::var("HOME").unwrap_or_else(|_| "/home/user".to_string());
-//     PathBuf::from(format!("{}/SAUVEGARDE/.versions", home))
-// }
 
 // fn default_exclude_patterns() -> Vec<String> {
 //     vec![

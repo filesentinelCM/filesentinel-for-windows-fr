@@ -1,11 +1,11 @@
 # filesentinel.
 
 [![Rust](https://img.shields.io/badge/rust-1.70%2B-orange.svg)](https://www.rust-lang.org/)
-[![Platform](https://img.shields.io/badge/platform-Windows%20%7C%20Linux%20%7C%20macOS-lightgrey.svg)]()
+[![Platform](https://img.shields.io/badge/platform-Windows-lightgrey.svg)]()
 
 > Système de surveillance et synchronisation de répertoires en temps réel écrit en Rust
 
-**filesentinel.** est un outil de surveillance de fichiers qui détecte les changements (création, modification, suppression) et synchronise automatiquement vers un répertoire de destination. Inspiré par `rsync` et `inotifywait`, il offre des fonctionnalités avancées de versionnement, compression, et notifications desktop.
+**filesentinel.** est un outil Windows de surveillance de fichiers qui détecte les changements (création, modification, suppression) et synchronise automatiquement vers un répertoire de destination. Il offre des fonctionnalités avancées de versionnement, compression, et notifications desktop.
 
 ## Table de matière
 
@@ -26,8 +26,7 @@
 
 ### Surveillance
 - **Polling** : Analyse récursive des répertoires avec comparaison d'état (hash MD5)
-- **Inotify** (Linux) : Détection native et instantanée des changements
-- **Cross-platform** : Fonctionne sur Windows, Linux et macOS via `notify`
+- **Surveillance Windows** : Détection des changements par scrutation
 
 ### Synchronisation
 - Synchronisation incrémentielle (différentielle)
@@ -82,7 +81,6 @@ cd filesentinel-for-windows-fr
 cargo install --path .
 ```
 
-<!-- > **Note Linux :** avant de compiler, activez le watcher natif inotify en décommentant les fonctions Linux dans `src/config/settings.rs` et en commentant les fonctions Windows correspondantes (instructions détaillées dans le fichier). -->
 
 ---
 
@@ -338,16 +336,15 @@ port = 22
 # Nom d'utilisateur SSH
 username = "votre_utilisateur"
 # Chemin vers votre clé SSH privée (optionnel, commentez si non utilisé)
-key_path = "~/.ssh/id_rsa"
+key_path = 'C:\Users\User\.ssh\id_rsa'
 # Chemin de destination sur le serveur distant
-remote_path = "/home/user/sauvegarde"
+remote_path = 'C:\SAUVEGARDE\remote'
 # Options rsync
 rsync_options = ["-avz", "--progress", "--partial"]
 # Synchronisation automatique toutes les X minutes (optionnel)
 auto_sync_interval_minutes = 30
 ```
 
-> **Note Linux :** si vous compilez depuis les sources, pensez à activer les fonctions Linux dans `src/config/settings.rs` avant de compiler (voir section [Installation](#-installation)).
 
 ## Workflows
 
@@ -529,7 +526,7 @@ RUST_LOG=trace filesentinel -v watch
 
 ## Dépannage & FAQ
 
-**Q : Les notifications ne fonctionnent pas sur Linux**
+**Q : Les notifications ne fonctionnent pas**
 ```bash
 # Installer le serveur de notifications
 sudo apt install libnotify-bin  # Ubuntu/Debian
@@ -553,7 +550,7 @@ Après `filesentinel init`, la section `[network]` est déjà présente dans `co
 host = "mon-serveur.com"      # Adresse de votre serveur
 port = 22                      # Port SSH
 username = "alice"             # Votre identifiant
-key_path = "~/.ssh/id_rsa"    # Votre clé privée SSH
+key_path = 'C:\Users\User\.ssh\id_rsa'    # Votre clé privée SSH
 remote_path = "/home/alice/backup"
 rsync_options = ["-avz", "--progress", "--partial"]
 auto_sync_interval_minutes = 30

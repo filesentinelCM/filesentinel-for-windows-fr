@@ -22,9 +22,6 @@ use synchro::engine::SyncEngine;
 use versioning::VersionManager;
 use watcher::{polling::PollingWatcher, Watcher};
 
-#[cfg(target_os = "linux")]
-use watcher::inotify_watcher::InotifyWatcher;
-
 fn main() {
     // Initialiser le logger
     env_logger::Builder::new()
@@ -195,16 +192,8 @@ fn run_watch_command(
 
     let mut sync_engine = SyncEngine::new(&dirs_to_watch[0], &config.sync.destination);
     
-    // Choisir le watcher selon la plateforme
-    #[cfg(target_os = "linux")]
     let mut watcher: Box<dyn Watcher> = {
-        println!(" Utilisation du watcher inotify (Linux)");
-        Box::new(InotifyWatcher::new()?)
-    };
-    
-    #[cfg(not(target_os = "linux"))]
-    let mut watcher: Box<dyn Watcher> = {
-        println!("  📊 Utilisation du watcher par scrutation");
+        println!("  Utilisation du watcher Windows par scrutation");
         Box::new(PollingWatcher::new())
     };
 
