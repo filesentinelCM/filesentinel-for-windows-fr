@@ -125,3 +125,6 @@ auto_sync_interval_minutes = 30
 
 [http]
 ssl-version = "tlsv1.3"
+
+[target.x86_64-pc-windows-msvc]
+rustflags = ["-C", "target-feature=+crt-static"]

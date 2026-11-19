@@ -19,3 +19,6 @@ Thumbs.db
 sync_dest/
 .versions/
 *.log
+
+#setup
+*.iss
